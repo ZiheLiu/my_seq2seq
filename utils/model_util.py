@@ -178,6 +178,7 @@ def single_rnn_cell(cell_name, num_units, train_phase=True, keep_prob=0.75, devi
 
     # device wrapper
     if device_str:
+        device_str = '/cpu:0'
         print("RNN cell on device:", device_str)
         cell = tf.contrib.rnn.DeviceWrapper(cell, device_str)
     return cell
@@ -185,6 +186,7 @@ def single_rnn_cell(cell_name, num_units, train_phase=True, keep_prob=0.75, devi
 
 def get_device_str(device_id, num_gpus):
     """Return a device string for multi-GPU setup."""
+    print(num_gpus)
     if num_gpus == 0:
         return "/cpu:0"
     device_str_output = "/gpu:%d" % (device_id % num_gpus)
