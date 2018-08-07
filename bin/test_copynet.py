@@ -124,7 +124,7 @@ for epoch in range(100):
                                                 input_batch_extend_tokens, target_batch_tokens,
                                                 dec_sentence_lengths)
         epoch_loss += batch_loss
-        #print("Epoch-{0} batch-{1} batch loss-{2}".format(epoch,i+1,batch_loss))
+        print("Epoch-{0} batch-{1} batch loss-{2}".format(epoch,i+1,batch_loss))
         i += 1
     loss_history.append(epoch_loss)
     predictions,_,logits = model.eval_one_batch(input_batch_tokens,enc_sentence_lengths,
